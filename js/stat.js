@@ -1,18 +1,3 @@
-/* var CLOUD_WIDTH = 420;
-var CLOUD_HEIGHT = 270;
- */
-/* var renderCloud = function (ctx, x, y, color) {
-    ctx.fillStyle= color;
-    ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
-
-   
-};  */
-
-
- /* renderCloud(ctx, 110, 20, 'rgba(0, 0, 0, 0.7)');
-    renderCloud(ctx, 100, 10, '#ffffff'); */
-
-
 var renderCloud = function (ctx, x, y, color) {
     ctx.fillStyle= color;
     ctx.beginPath();
@@ -51,6 +36,7 @@ var getMaxElement = function(arr) {
     for(var i = 1; i< arr.length; i++) {
         if(arr[i] > maxElement) {
             maxElement = arr[i];
+            
         }
     }
     
@@ -75,13 +61,31 @@ window.renderStatistics = function (ctx, players, times) {
     
     var maxTime = getMaxElement(times);
     
+    function getRandomSaturationOfBlue(){ //рандомный синий цвет
+        var red = 0;
+        var green = 0;
+        var blue = 255;
+        var a =(Math.random().toFixed(1)) 
+
+        if (a<=0.2) { //подстраховка от 0
+            a += 2;
+        }
+
+        console.log(a);
+             
+        return "rgba("+red+","+green+"," +blue+", " +a+" )";  
+      }
+      
+     
+   
 
     for (var i = 0; i<players.length; i++) {
         if(players[i]=='Вы') {
             ctx.fillStyle='rgba(255, 0, 0, 1)';
         }
         else {
-        ctx.fillStyle='rgba(0, 0, 255, 1)'; 
+        
+            ctx.fillStyle = getRandomSaturationOfBlue();
     }
        
         ctx.fillRect (CLOUD_X +((BAR_WIDTH + FONT_GAP)*i), CLOUD_Y, BAR_WIDTH, -(BAR_HEIGHT * times[i]) / maxTime);

@@ -140,6 +140,7 @@ var onUserDialogEscapePress = function (evt) {
     if (userNameInput!==document.activeElement && evt.keyCode === ESCAPE_BUTTON) 
      {
         closeUserDialog();
+        
     }
 };
 
@@ -163,6 +164,8 @@ var openUserDialog = function () {
 var closeUserDialog = function () {
     userDialog.classList.add('hidden');
     document.removeEventListener('keydown', onUserDialogEscapePress);
+    userDialog.style.top = null;
+    userDialog.style.left = null;
 };
 
 userDialogOpen.addEventListener('click', function () {
@@ -219,3 +222,26 @@ var setupWizardFireball = document.querySelector('.setup-fireball-wrap');
 setupWizardFireball.addEventListener('click', function () {
     setupWizardFireball.style.background = randomizeFromArray(FIREBALL_COLOR);
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

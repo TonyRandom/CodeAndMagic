@@ -28,7 +28,7 @@ dialogHandler.addEventListener('mousedown', function(evt){
     // При каждом движении мыши нам нужно обновлять смещение относительно первоначальной точки, чтобы диалог смещался на необходимую величину.
     var onMouseMove = function (moveEvt) {
         dragged =  true;
-        console.log(evt.clientX);
+        
         var shift = {
             x: startCoords.x - moveEvt.clientX,
             y: startCoords.y - moveEvt.clientY
@@ -66,15 +66,14 @@ dialogHandler.addEventListener('mousedown', function(evt){
     document.addEventListener('mouseup', onMouseUp);
 
 
-    //При повторном открытии/закрытии диалога, положение диалога должно сбрасываться на изначальное
-    userDialogClose.addEventListener('click', function() {
-        /* userDialog.style.top = (userDialog.offsetTop  + evt.clientY )  + 'px';
-        userDialog.style.left = (userDialog.offsetTop /* + evt.clientX ) + 'px'; */
+    
 
-        userDialog.style.top = (userDialog.offsetTop + shift.y) + 'px';
-        userDialog.style.left = (userDialog.offsetLeft + shift.x) + 'px';
-    })
+    
 })
 
 
-
+//При повторном открытии/закрытии диалога, положение диалога должно сбрасываться на изначальное
+    //добавил в функцию закрытия диалога
+    /* userDialog.style.top = null;
+    userDialog.style.left = null; */
+    
